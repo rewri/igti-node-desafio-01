@@ -8,6 +8,13 @@
     "start": "nodemon index.js"
   },
   "keywords": [],
+  "type": "module",
   "author": "Rérisson Fumes",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
 }
