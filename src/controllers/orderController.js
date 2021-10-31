@@ -13,8 +13,23 @@ async function create(req, res, next) {
     }
 }
 
-async function update(_req, res, _next) {
-
+async function update(req, res, next) {
+    try {
+        const id = req.params.id;
+        let order = req.body;
+        if (!order.cliente || !order.produto || !order.valor || !("entregue" in req.body)) {
+            throw new Error('cliente, produto, valor e entregue são obrigatórios.');
+        }
+        const found = await orderService.find(id);
+        if (!found) {
+            throw new Error('pedido não encontrado');
+        }
+        order.id = found.id;
+        order = await orderService.update(order);
+        res.send(order);
+    } catch (error) {
+        next(error);
+    }
 }
 
 async function updateStatus(_req, res, _next) {

@@ -2,8 +2,7 @@ import { promises as fs } from "fs";
 const { readFile, writeFile } = fs;
 
 async function getData() {
-    const data = JSON.parse(await readFile(global.FILE));
-    return data;
+    return JSON.parse(await readFile(global.FILE));
 }
 
 async function insert(order) {
@@ -23,7 +22,23 @@ async function insert(order) {
     return order;
 }
 
+async function findOne(id) {
+    const data = await getData();
+    return data.pedidos.find(order => order.id === parseInt(id));
+}
+
+async function update(order) {
+    const data = await getData();
+    const index = data.pedidos.findIndex(row => row.id === order.id);
+    order = { id: order.id, ...order };
+    data.pedidos[index] = order;
+    await writeFile(global.FILE, JSON.stringify(data, null, 2));
+    return order;
+}
+
 export default {
     getData,
-    insert
+    insert,
+    findOne,
+    update
 }

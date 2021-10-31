@@ -3948,11 +3948,10 @@
     },
     {
       "id": 495,
-      "cliente": "Gedeão Saloio",
-      "produto": "Pizza Calabresa",
-      "valor": 30.5,
-      "entregue": true,
-      "timestamp": "2021-05-02T19:48:09.767Z"
+      "cliente": "Rérisson Fumes",
+      "produto": "Pizza Pepperoni",
+      "valor": 32.5,
+      "entregue": false
     },
     {
       "id": 496,
@@ -4005,10 +4004,9 @@
     {
       "id": 502,
       "cliente": "Rérisson Fumes",
-      "produto": "Pizza Napolitana",
-      "valor": 28,
-      "entregue": false,
-      "timestamp": "2021-10-31T00:57:57.961Z"
+      "produto": "Pizza Pepperoni",
+      "valor": 32.5,
+      "entregue": false
     },
     {
       "id": 503,

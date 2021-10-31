@@ -11,7 +11,17 @@ async function index() {
     return await orderRepository.getData();
 }
 
+async function find(id) {
+    return await orderRepository.findOne(id);
+}
+
+async function update(order) {
+    return await orderRepository.update(order);
+}
+
 export default { 
     create,
-    index
+    index,
+    find,
+    update
 }
