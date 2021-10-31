@@ -3,14 +3,14 @@ const { readFile, writeFile } = fs;
 
 async function getData() {
     const data = JSON.parse(await readFile(global.FILE));
-    return data.pedidos;
+    return data;
 }
 
-async function insert() {
+async function insert(order) {
     const data = await getData();
     const { cliente, produto, valor } = order;
     order = {
-        id: data.nextId++,
+        id: data.nextId,
         cliente,
         produto,
         valor: parseFloat(valor),
@@ -18,7 +18,8 @@ async function insert() {
         timestamp: new Date()
     }
     data.pedidos.push(order);
-    //await writeFile(global.FILE, JSON.stringify(data, null, 2));
+    data.nextId++;
+    await writeFile(global.FILE, JSON.stringify(data, null, 2));
     return order;
 }
 

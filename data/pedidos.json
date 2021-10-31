@@ -1,5 +1,5 @@
 {
-  "nextId": 501,
+  "nextId": 504,
   "pedidos": [
     {
       "id": 1,
@@ -3993,6 +3993,30 @@
       "valor": 32,
       "entregue": true,
       "timestamp": "2021-05-02T19:48:09.767Z"
+    },
+    {
+      "id": 501,
+      "cliente": "Fernanda Fumes",
+      "produto": "Pizza Atum",
+      "valor": 32,
+      "entregue": false,
+      "timestamp": "2021-10-31T00:57:50.702Z"
+    },
+    {
+      "id": 502,
+      "cliente": "Rérisson Fumes",
+      "produto": "Pizza Napolitana",
+      "valor": 28,
+      "entregue": false,
+      "timestamp": "2021-10-31T00:57:57.961Z"
+    },
+    {
+      "id": 503,
+      "cliente": "Rérisson Fumes",
+      "produto": "Pizza Calabresa",
+      "valor": 30.5,
+      "entregue": false,
+      "timestamp": "2021-10-31T00:58:22.457Z"
     }
   ]
 }
