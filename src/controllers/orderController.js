@@ -62,7 +62,16 @@ async function remove(req, res, next) {
 }
 
 async function view(req, res, next) {
-   
+    try {
+        const id = req.params.id;
+        const order = await orderService.find(id);
+        if (!order) {
+            throw new Error('pedido não encontrado');
+        }
+        res.send(order);
+    } catch (error) {
+        next(error);
+    }
 }
 
 async function totalByClient(_req, res, _next) {
