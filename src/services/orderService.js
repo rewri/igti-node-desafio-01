@@ -15,10 +15,6 @@ async function find(id) {
     return await orderRepository.findOne(id);
 }
 
-async function findIndex(id) {
-    return await orderRepository.findOne(id);
-}
-
 async function update(order) {
     return await orderRepository.update(order);
 }
@@ -27,11 +23,15 @@ async function updateStatus(order) {
     return await orderRepository.updateStatus(order);
 }
 
+async function remove(id) {
+    return await orderRepository.remove(id);
+}
+
 export default { 
     create,
     index,
     find,
-    findIndex,
     update,
     updateStatus,
+    remove,
 }

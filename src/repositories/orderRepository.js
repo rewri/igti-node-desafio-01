@@ -27,11 +27,6 @@ async function findOne(id) {
     return data.pedidos.find(order => order.id === parseInt(id));
 }
 
-async function findIndex(id) {
-    const data = await getData();
-    return data.pedidos.findIndex(row => row.id === id);
-}
-
 async function update(order) {
     const data = await getData();
     const index = data.pedidos.findIndex(row => row.id === order.id);
@@ -49,11 +44,18 @@ async function updateStatus(order) {
     return data.pedidos[index];
 }
 
+async function remove(id) {
+    const data = await getData();
+    data.pedidos = data.pedidos.filter(row => row.id !== parseInt(id));
+    await writeFile(global.FILE, JSON.stringify(data, null, 2));
+    return data.pedidos;
+}
+
 export default {
     getData,
     insert,
     findOne,
-    findIndex,
     update,
     updateStatus,
+    remove,
 }

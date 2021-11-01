@@ -48,8 +48,17 @@ async function updateStatus(req, res, next) {
     }
 }
 
-async function remove(_req, res, _next) {
-
+async function remove(req, res, next) {
+    try {
+        const id = req.params.id;
+        if (!id) {
+            throw new Error('id obrigatórios.');
+        }
+        const order = await orderService.remove(id);
+        res.send(order);
+    } catch (error) {
+        next(error);
+    }
 }
 
 async function view(req, res, next) {

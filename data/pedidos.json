@@ -3978,14 +3978,6 @@
       "timestamp": "2021-05-02T19:48:09.767Z"
     },
     {
-      "id": 499,
-      "cliente": "Quirino Barra",
-      "produto": "Pizza Frango com Catupiry",
-      "valor": 29,
-      "entregue": true,
-      "timestamp": "2021-05-02T19:48:09.767Z"
-    },
-    {
       "id": 500,
       "cliente": "Valéria Pádua",
       "produto": "Pizza Atum",
@@ -3999,14 +3991,6 @@
       "produto": "Pizza Atum",
       "valor": 32,
       "entregue": true,
-      "timestamp": "2021-10-31T00:57:50.702Z"
-    },
-    {
-      "id": 502,
-      "cliente": "Rérisson Fumes",
-      "produto": "Pizza Pepperoni",
-      "valor": 32.5,
-      "entregue": false,
       "timestamp": "2021-10-31T00:57:50.702Z"
     },
     {
