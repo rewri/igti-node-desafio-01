@@ -27,6 +27,11 @@ async function findOne(id) {
     return data.pedidos.find(order => order.id === parseInt(id));
 }
 
+async function findIndex(id) {
+    const data = await getData();
+    return data.pedidos.findIndex(row => row.id === id);
+}
+
 async function update(order) {
     const data = await getData();
     const index = data.pedidos.findIndex(row => row.id === order.id);
@@ -36,9 +41,19 @@ async function update(order) {
     return order;
 }
 
+async function updateStatus(order) {
+    const data = await getData();
+    const index = data.pedidos.findIndex(row => row.id === order.id);
+    data.pedidos[index].entregue = order.entregue;
+    await writeFile(global.FILE, JSON.stringify(data, null, 2));
+    return data.pedidos[index];
+}
+
 export default {
     getData,
     insert,
     findOne,
-    update
+    findIndex,
+    update,
+    updateStatus,
 }

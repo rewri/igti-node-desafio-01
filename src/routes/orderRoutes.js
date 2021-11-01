@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post("/", orderController.create);
 router.put("/:id", orderController.update);
-router.patch("/entrega/:id", orderController.updateStatus);
+router.patch("/entrega", orderController.updateStatus);
 router.delete("/:id", orderController.remove);
 router.get("/:id", orderController.view);
 router.get("/total-cliente/:id", orderController.totalByClient);

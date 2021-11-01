@@ -32,8 +32,20 @@ async function update(req, res, next) {
     }
 }
 
-async function updateStatus(_req, res, _next) {
-
+async function updateStatus(req, res, next) {
+    try {
+        let order = req.body;
+        if (!order.id || !("entregue" in req.body)) {
+            throw new Error('id e entregue são obrigatórios.');
+        }
+        if (order.entregue !== false && order.entregue !== true) {
+            throw new Error('entregue deve ser true ou false.');
+        }
+        order = await orderService.updateStatus(order);
+        res.send(order);
+    } catch (error) {
+        next(error);
+    }
 }
 
 async function remove(_req, res, _next) {

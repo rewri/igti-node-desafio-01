@@ -3998,7 +3998,7 @@
       "cliente": "Fernanda Fumes",
       "produto": "Pizza Atum",
       "valor": 32,
-      "entregue": false,
+      "entregue": true,
       "timestamp": "2021-10-31T00:57:50.702Z"
     },
     {
@@ -4006,7 +4006,8 @@
       "cliente": "Rérisson Fumes",
       "produto": "Pizza Pepperoni",
       "valor": 32.5,
-      "entregue": false
+      "entregue": false,
+      "timestamp": "2021-10-31T00:57:50.702Z"
     },
     {
       "id": 503,
