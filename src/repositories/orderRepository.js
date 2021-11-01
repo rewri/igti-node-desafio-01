@@ -66,12 +66,18 @@ async function totalByProduct(product) {
         .reduce((acc, row) => { return acc += row.valor; }, 0)
 };
 
-async function bestSellers(product) {
+async function bestSellers() {
     const data = await getData();
-    return data.pedidos
-        .filter(row => row.produto === product)
-        .filter(row => row.entregue === true)
-        .reduce((acc, row) => { return acc += row.valor; }, 0)
+    const list = {};
+    await data.pedidos.map((order) => {
+        const pedidos = data.pedidos
+            .filter(row => row.produto === order.produto)
+            .filter(row => row.entregue === true);
+        list[order.produto] = pedidos.length;
+    });
+    return Object.fromEntries(
+        Object.entries(list).sort(([, a], [, b]) => b - a)
+    );
 };
 
 export default {

@@ -1,5 +1,14 @@
 import orderService from "../services/orderService.js"
 
+async function index(_req, res, next) {
+    try {
+        const data = await orderService.index();
+        res.send(data);
+    } catch (error) {
+        next(error)
+    }
+};
+
 async function create(req, res, next) {
     try {
         let order = req.body;
@@ -106,20 +115,17 @@ async function totalByProduct(req, res, next) {
     }
 }
 
-async function bestSeller(_req, res, _next) {
-
-}
-
-async function index(_req, res, next) {
+async function bestSellers(_req, res, next) {
     try {
-        const data = await orderService.index();
+        const data = await orderService.bestSellers();
         res.send(data);
     } catch (error) {
-        next(error)
+        next(error);
     }
-};
+}
 
 export default {
+    index,
     create,
     update,
     updateStatus,
@@ -127,7 +133,6 @@ export default {
     view,
     totalByClient,
     totalByProduct,
-    bestSeller,
-    index
+    bestSellers,
 }
 

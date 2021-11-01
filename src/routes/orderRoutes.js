@@ -9,8 +9,8 @@ router.patch("/entrega", orderController.updateStatus);
 router.delete("/:id", orderController.remove);
 router.get("/total-cliente", orderController.totalByClient);
 router.get("/total-produto", orderController.totalByProduct);
+router.get("/mais-vendidos", orderController.bestSellers);
 router.get("/:id", orderController.view);
-router.get("/mais-vendidos", orderController.bestSeller);
 router.get("/", orderController.index);
 
 router.use((err, _req, res, _next) => {
