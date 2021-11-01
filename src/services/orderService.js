@@ -27,6 +27,10 @@ async function remove(id) {
     return await orderRepository.remove(id);
 }
 
+async function totalByClient(cliente) {
+    return await orderRepository.totalByClient(cliente);
+}
+
 export default { 
     create,
     index,
@@ -34,4 +38,5 @@ export default {
     update,
     updateStatus,
     remove,
+    totalByClient,
 }

@@ -7,10 +7,10 @@ router.post("/", orderController.create);
 router.put("/:id", orderController.update);
 router.patch("/entrega", orderController.updateStatus);
 router.delete("/:id", orderController.remove);
+router.get("/total-cliente", orderController.totalByClient);
+router.get("/total-produto", orderController.totalByProduct);
 router.get("/:id", orderController.view);
-router.get("/total-cliente/:id", orderController.totalByClient);
-router.get("/total-produto/:id", orderController.totalByProduct);
-//router.get("/mais-vendidos", orderController.bestSeller);
+router.get("/mais-vendidos", orderController.bestSeller);
 router.get("/", orderController.index);
 
 router.use((err, _req, res, _next) => {

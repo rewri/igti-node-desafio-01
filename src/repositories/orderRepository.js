@@ -51,6 +51,11 @@ async function remove(id) {
     return data.pedidos;
 }
 
+async function totalByClient(cliente) {
+    const data = await getData();
+    const pedidos = data.pedidos.filter(row => row.cliente === cliente);
+    return pedidos.reduce((acc, pedido) => { return acc += pedido.valor; }, 0)};
+
 export default {
     getData,
     insert,
@@ -58,4 +63,5 @@ export default {
     update,
     updateStatus,
     remove,
+    totalByClient,
 }

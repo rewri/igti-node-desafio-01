@@ -4,7 +4,7 @@ async function create(req, res, next) {
     try {
         let order = req.body;
         if (!order.cliente || !order.produto || !order.valor) {
-            throw new Error('cliente, produto e valor são obrigatórios.');
+            throw new Error('cliente, produto e valor são obrigatórios');
         }
         order = await orderService.create(order);
         res.send(order);
@@ -18,7 +18,7 @@ async function update(req, res, next) {
         const id = req.params.id;
         let order = req.body;
         if (!order.cliente || !order.produto || !order.valor || !("entregue" in req.body)) {
-            throw new Error('cliente, produto, valor e entregue são obrigatórios.');
+            throw new Error('cliente, produto, valor e entregue são obrigatórios');
         }
         const found = await orderService.find(id);
         if (!found) {
@@ -36,10 +36,10 @@ async function updateStatus(req, res, next) {
     try {
         let order = req.body;
         if (!order.id || !("entregue" in req.body)) {
-            throw new Error('id e entregue são obrigatórios.');
+            throw new Error('id e entregue são obrigatórios');
         }
         if (order.entregue !== false && order.entregue !== true) {
-            throw new Error('entregue deve ser true ou false.');
+            throw new Error('entregue deve ser true ou false');
         }
         order = await orderService.updateStatus(order);
         res.send(order);
@@ -52,7 +52,7 @@ async function remove(req, res, next) {
     try {
         const id = req.params.id;
         if (!id) {
-            throw new Error('id obrigatórios.');
+            throw new Error('id obrigatório');
         }
         const order = await orderService.remove(id);
         res.send(order);
@@ -74,8 +74,20 @@ async function view(req, res, next) {
     }
 }
 
-async function totalByClient(_req, res, _next) {
-
+async function totalByClient(req, res, next) {
+    try {
+        const client = req.body;
+        if (!client.cliente) {
+            throw new Error('cliente obrigatório');
+        }
+        const total = await orderService.totalByClient(client.cliente);
+        if (!total) {
+            throw new Error('pedidos do cliente não encontrado');
+        }
+        res.send({ "Cliente": client.cliente, "Total": total });
+    } catch (error) {
+        next(error);
+    }
 }
 
 async function totalByProduct(_req, res, _next) {
