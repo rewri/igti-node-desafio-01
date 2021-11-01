@@ -1,5 +1,5 @@
 {
-  "nextId": 507,
+  "nextId": 501,
   "pedidos": [
     {
       "id": 1,
@@ -3948,10 +3948,11 @@
     },
     {
       "id": 495,
-      "cliente": "Rérisson Fumes",
-      "produto": "Pizza Pepperoni",
-      "valor": 32.5,
-      "entregue": true
+      "cliente": "Gedeão Saloio",
+      "produto": "Pizza Calabresa",
+      "valor": 30.5,
+      "entregue": true,
+      "timestamp": "2021-05-02T19:48:09.767Z"
     },
     {
       "id": 496,
@@ -3978,52 +3979,20 @@
       "timestamp": "2021-05-02T19:48:09.767Z"
     },
     {
+      "id": 499,
+      "cliente": "Quirino Barra",
+      "produto": "Pizza Frango com Catupiry",
+      "valor": 29,
+      "entregue": true,
+      "timestamp": "2021-05-02T19:48:09.767Z"
+    },
+    {
       "id": 500,
       "cliente": "Valéria Pádua",
       "produto": "Pizza Atum",
       "valor": 32,
       "entregue": true,
       "timestamp": "2021-05-02T19:48:09.767Z"
-    },
-    {
-      "id": 501,
-      "cliente": "Fernanda Fumes",
-      "produto": "Pizza Atum",
-      "valor": 32,
-      "entregue": true,
-      "timestamp": "2021-10-31T00:57:50.702Z"
-    },
-    {
-      "id": 503,
-      "cliente": "Rérisson Fumes",
-      "produto": "Pizza Calabresa",
-      "valor": 30.5,
-      "entregue": false,
-      "timestamp": "2021-10-31T00:58:22.457Z"
-    },
-    {
-      "id": 504,
-      "cliente": "Rérisson Fumes",
-      "produto": "Pizza de Ovo",
-      "valor": 30.5,
-      "entregue": true,
-      "timestamp": "2021-11-01T18:14:10.810Z"
-    },
-    {
-      "id": 505,
-      "cliente": "Rérisson Fumes",
-      "produto": "Pizza Muçarela",
-      "valor": 30.5,
-      "entregue": false,
-      "timestamp": "2021-11-01T18:57:16.460Z"
-    },
-    {
-      "id": 506,
-      "cliente": "Rérisson Fumes",
-      "produto": "Pizza de Ovo",
-      "valor": 30.5,
-      "entregue": true,
-      "timestamp": "2021-11-01T18:57:41.741Z"
     }
   ]
 }
