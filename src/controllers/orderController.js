@@ -90,8 +90,20 @@ async function totalByClient(req, res, next) {
     }
 }
 
-async function totalByProduct(_req, res, _next) {
-
+async function totalByProduct(req, res, next) {
+    try {
+        const product = req.body;
+        if (!product.produto) {
+            throw new Error('produto obrigatório');
+        }
+        const total = await orderService.totalByProduct(product.produto);
+        if (!total) {
+            throw new Error('pedidos do produto não encontrado');
+        }
+        res.send({ "Produto": product.produto, "Total": total });
+    } catch (error) {
+        next(error);
+    }
 }
 
 async function bestSeller(_req, res, _next) {

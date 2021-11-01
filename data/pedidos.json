@@ -1,5 +1,5 @@
 {
-  "nextId": 504,
+  "nextId": 505,
   "pedidos": [
     {
       "id": 1,
@@ -3951,7 +3951,7 @@
       "cliente": "Rérisson Fumes",
       "produto": "Pizza Pepperoni",
       "valor": 32.5,
-      "entregue": false
+      "entregue": true
     },
     {
       "id": 496,
@@ -4000,6 +4000,14 @@
       "valor": 30.5,
       "entregue": false,
       "timestamp": "2021-10-31T00:58:22.457Z"
+    },
+    {
+      "id": 504,
+      "cliente": "Rérisson Fumes",
+      "produto": "Pizza de Ovo",
+      "valor": 30.5,
+      "entregue": true,
+      "timestamp": "2021-11-01T18:14:10.810Z"
     }
   ]
 }

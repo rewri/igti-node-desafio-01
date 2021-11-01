@@ -31,6 +31,14 @@ async function totalByClient(cliente) {
     return await orderRepository.totalByClient(cliente);
 }
 
+async function totalByProduct(product) {
+    return await orderRepository.totalByProduct(product);
+}
+
+async function bestSellers() {
+    return await orderRepository.bestSellers();
+}
+
 export default { 
     create,
     index,
@@ -39,4 +47,6 @@ export default {
     updateStatus,
     remove,
     totalByClient,
+    totalByProduct,
+    bestSellers
 }

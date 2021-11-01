@@ -51,10 +51,28 @@ async function remove(id) {
     return data.pedidos;
 }
 
-async function totalByClient(cliente) {
+async function totalByClient(client) {
     const data = await getData();
-    const pedidos = data.pedidos.filter(row => row.cliente === cliente);
-    return pedidos.reduce((acc, pedido) => { return acc += pedido.valor; }, 0)};
+    return data.pedidos
+        .filter(row => row.cliente === client)
+        .filter(row => row.entregue === true)
+        .reduce((acc, row) => { return acc += row.valor; }, 0)};
+
+async function totalByProduct(product) {
+    const data = await getData();
+    return data.pedidos
+        .filter(row => row.produto === product)
+        .filter(row => row.entregue === true)
+        .reduce((acc, row) => { return acc += row.valor; }, 0)
+};
+
+async function bestSellers(product) {
+    const data = await getData();
+    return data.pedidos
+        .filter(row => row.produto === product)
+        .filter(row => row.entregue === true)
+        .reduce((acc, row) => { return acc += row.valor; }, 0)
+};
 
 export default {
     getData,
@@ -64,4 +82,6 @@ export default {
     updateStatus,
     remove,
     totalByClient,
+    totalByProduct,
+    bestSellers
 }
