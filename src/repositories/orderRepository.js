@@ -18,7 +18,7 @@ async function insert(order) {
     }
     data.pedidos.push(order);
     data.nextId++;
-    await writeFile(global.FILE, JSON.stringify(data, null, 2));
+    await writeData(data);
     return order;
 }
 
@@ -32,7 +32,7 @@ async function update(order) {
     const index = data.pedidos.findIndex(row => row.id === order.id);
     order = { id: order.id, ...order };
     data.pedidos[index] = order;
-    await writeFile(global.FILE, JSON.stringify(data, null, 2));
+    await writeData(data);
     return order;
 }
 
@@ -40,14 +40,14 @@ async function updateStatus(order) {
     const data = await getData();
     const index = data.pedidos.findIndex(row => row.id === order.id);
     data.pedidos[index].entregue = order.entregue;
-    await writeFile(global.FILE, JSON.stringify(data, null, 2));
+    await writeData(data);
     return data.pedidos[index];
 }
 
 async function remove(id) {
     const data = await getData();
     data.pedidos = data.pedidos.filter(row => row.id !== parseInt(id));
-    await writeFile(global.FILE, JSON.stringify(data, null, 2));
+    await writeData(data);
     return data.pedidos;
 }
 
@@ -79,6 +79,10 @@ async function bestSellers() {
         Object.entries(list).sort(([, a], [, b]) => b - a)
     );
 };
+
+async function writeData(data) {
+    return writeFile(global.FILE, JSON.stringify(data, null, 2));
+}
 
 export default {
     getData,
